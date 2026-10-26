@@ -12,3 +12,12 @@
 # other
 # rm -rf package/lean/{samba4,luci-app-samba4,luci-app-ttyd}
 
+echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >> feeds.conf.default
+echo 'src-git small https://github.com/kenzok8/small' >> feeds.conf.default
+
+# 更新并安装 feeds
+./scripts/feeds update -a
+./scripts/feeds install -a
+
+# 单独安装 PassWall (确保其被拉取)
+./scripts/feeds install luci-app-passwall
