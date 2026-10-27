@@ -21,3 +21,6 @@ echo 'src-git small https://github.com/kenzok8/small' >> feeds.conf.default
 
 # 单独安装 PassWall (确保其被拉取)
 ./scripts/feeds install luci-app-passwall
+# 强制删除 6.18 内核下会引发报错的 shortcut-fe 补丁
+rm -f target/linux/generic/hack-6.18/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
+rm -f target/linux/generic/hack-6.18/613-netfilter_optional_tcp_window_check.patch
